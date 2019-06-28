@@ -148,7 +148,7 @@ function EnhancedTable({data}) {
                 rowCount={data.length}
               />
               <TableBody>
-                {data.length === 8 && stableSort(data, getSorting(order, orderBy))
+                {stableSort(data, getSorting(order, orderBy))
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map(({token, count, volume}, index) => {
                     const isItemSelected = isSelected(token);

@@ -85,7 +85,6 @@ class TableHeader extends PureComponent {
             </TableHead>
         )
     }
-
 }
 
 export default TableHeader;

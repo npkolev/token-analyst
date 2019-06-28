@@ -25,7 +25,7 @@ export const fetchAllTokens = () => {
                 const count = { ...trans.data[0] };
                 const volume = { ...vol.data[0] };
                 acc.push({ token, count, volume })
-                dispatch(getAllTokens(acc));
+                acc.length === tokens.length && dispatch(getAllTokens(acc));
             })).catch(error => {
                 console.error(error);
             })
