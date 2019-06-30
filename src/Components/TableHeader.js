@@ -8,7 +8,6 @@ import TableRow from '@material-ui/core/TableRow';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
-
 class TableHeader extends PureComponent {
     constructor(props) {
         super(props);
@@ -23,18 +22,6 @@ class TableHeader extends PureComponent {
         orderBy: PropTypes.string.isRequired,
         rowCount: PropTypes.number.isRequired,
     };
-
-    desc(a, b, orderBy) {
-        if (b[orderBy] < a[orderBy]) {
-            return -1;
-        }
-        if (b[orderBy] > a[orderBy]) {
-            return 1;
-        }
-        return 0;
-    }
-
-    
 
     render() {
         const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort } = this.props;
@@ -65,19 +52,19 @@ class TableHeader extends PureComponent {
                             inputProps={{ 'aria-label': 'Select all tokens' }}
                         />
                     </TableCell>
-                    {headRows.map(row => (
+                    {headRows.map(column => (
                         <TableCell
-                            key={row.id}
-                            align={row.numeric ? 'right' : 'left'}
-                            padding={row.disablePadding ? 'none' : 'default'}
-                            sortDirection={orderBy === row.id ? order : false}
+                            key={column.id}
+                            align={column.numeric ? 'right' : 'left'}
+                            padding={column.disablePadding ? 'none' : 'default'}
+                            sortDirection={orderBy === column.id ? order : false}
                         >
                             <TableSortLabel
-                                active={orderBy === row.id}
+                                active={orderBy === column.id}
                                 direction={order}
-                                onClick={createSortHandler(row.id)}
+                                onClick={createSortHandler(column.id)}
                             >
-                                {row.label}
+                                {column.label}
                             </TableSortLabel>
                         </TableCell>
                     ))}

@@ -14,6 +14,15 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import AppBar from "@material-ui/core/AppBar";
 import history from "./history.js";
+import SvgIcon from '@material-ui/core/SvgIcon';
+
+function HomeIcon(props) {
+    return (
+        <SvgIcon {...props}>
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+        </SvgIcon>
+    );
+}
 
 const store = createStore(
     rootReducer,
@@ -25,9 +34,18 @@ ReactDOM.render(
         <Router history={history}>
             <AppBar position="static">
                 <Toolbar>
-                    <Typography variant="h6" color="inherit" style={{cursor: 'pointer'}} onClick={() => history.push('/')}>
-                        Token Analyst
+                    <div style={{
+                        cursor: 'pointer', display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'flex-end',
+                        margin: 12
+                    }} onClick={() => history.push('/')}>
+                        <HomeIcon style={{marginRight: 12, fontSize: 30, color: "white" }} />
+                        <Typography variant="h6" color="inherit">
+                            Token Analyst
                     </Typography>
+                    </div>
+
                 </Toolbar>
             </AppBar>
             <Route exact path="/" component={App} />
