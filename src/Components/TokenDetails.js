@@ -90,31 +90,7 @@ class TokenDetails extends PureComponent {
         const processedData = tokenTransfers.map(item => {
             return { 'y': item }
         })
-
-        // const data = [73, 51, 42, 63, 68, 71, 53, 45, 84, 53, 71, 97];
-
-        // const svg = d3.select(this.refs.wrapper)
-        //     .append("svg")
-        //     .attr("width", 1600)
-        //     .attr("height", 500)
-        //     .style("margin-left", 100);
-        // data && svg.selectAll("rect")
-        //     .data(data)
-        //     .enter()
-        //     .append("rect")
-        //     .attr("x", (d, i) => i * 70)
-        //     .attr("y", (d, i) => 500 - 3 * d)
-        //     .attr("width", 25)
-        //     .attr("height", (d, i) => d * 7)
-        //     .attr("fill", "green");
-        // data && svg.selectAll("text")
-        //     .data(data)
-        //     .enter()
-        //     .append("text")
-        //     .text((d) => d)
-        //     .attr("x", (d, i) => i * 70)
-        //     .attr("y", (d, i) => 500 - (3 * d) - 3)
-
+        
         var margin = { top: 50, right: 80, bottom: 50, left: 50 }
             , width = (window.innerWidth - margin.left - margin.right) / 1.03// Use the window's width 
             , height = (window.innerHeight - margin.top - margin.bottom) / 1.03// Use the window's height
